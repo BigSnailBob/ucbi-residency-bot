@@ -155,7 +155,7 @@ def build_summary(data: dict) -> str:
         f"💰 Заощадження: {data.get('savings', '—')}\n"
         f"⚖️ Судимості: {data.get('criminal_record', '—')}\n"
         f"👫 Сімейний стан: {data.get('marital_status', '—')}\n"
-        f"👨‍👩‍👧 Кількість членів родини: {data.get('family_count', '—')}\n"
+        f"👨‍👩‍👧 Члени родини до заявки: {data.get('family_count', '—')}\n"
         f"💬 Додаткові коментарі: {data.get('extra_notes', '—')}\n"
         f"━━━━━━━━━━━━━━━━━━━━━━"
     )
@@ -328,8 +328,8 @@ async def get_marital_status(update: Update, context: ContextTypes.DEFAULT_TYPE)
         return MARITAL_STATUS
     context.user_data["marital_status"] = update.message.text.strip()
     await update.message.reply_text(
-        "👨‍👩‍👧 Скільки членів родини їде разом з вами?\n"
-        "(введіть число, або напишіть «0» якщо їдете самі)",
+        "👨‍👩‍👧 Чи будете ви включати членів родини до заявки на резиденцію?\n"
+        "(якщо так — вкажіть кількість, якщо ні — напишіть «0»)",
         reply_markup=ReplyKeyboardRemove(),
     )
     return FAMILY_COUNT
