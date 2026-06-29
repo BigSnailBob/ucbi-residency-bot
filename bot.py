@@ -393,17 +393,17 @@ async def confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         await update.message.reply_text(
             "🎉 Дякуємо! Останній крок — оберіть зручний час для консультації (до 30 хвилин, вартість 45€):\n\n"
             f"👉 {booking_url}",
-            reply_markup=ReplyKeyboardRemove(),
+            reply_markup=MAIN_MENU_KB,
         )
     except Exception as e:
         logger.error(f"Failed to create booking session: {e}")
         await update.message.reply_text(
             "⚠️ Виникла технічна помилка. "
             "Будь ласка, спробуйте ще раз або зв'яжіться з нами напряму.",
-            reply_markup=ReplyKeyboardRemove(),
+            reply_markup=MAIN_MENU_KB,
         )
 
-    return ConversationHandler.END
+    return MAIN_MENU
 
 
 async def coop_get_name(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
