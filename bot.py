@@ -391,7 +391,7 @@ async def confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         booking_url = f"{FRONTEND_URL}/book/{session_id}"
 
         await update.message.reply_text(
-            "🎉 Дякуємо! Останній крок — оберіть зручний час для 15-хвилинної безкоштовної консультації:\n\n"
+            "🎉 Дякуємо! Останній крок — оберіть зручний час для консультації (до 30 хвилин, вартість 45€):\n\n"
             f"👉 {booking_url}",
             reply_markup=ReplyKeyboardRemove(),
         )
